@@ -1,1 +1,1 @@
-CREATE TABLE
+CREATE UNIQUE INDEX events_slug_key ON events(slug);
