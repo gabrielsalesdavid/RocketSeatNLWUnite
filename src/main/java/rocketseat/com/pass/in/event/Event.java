@@ -22,7 +22,7 @@ public class Event {
     private String title;
 
     @Column(nullable = false)
-    private String detail;
+    private String details;
 
     @Column(nullable = false, unique = true)
     private String slug;
