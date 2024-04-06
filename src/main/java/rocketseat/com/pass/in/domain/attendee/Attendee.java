@@ -1,6 +1,6 @@
 package rocketseat.com.pass.in.domain.attendee;
 
-import rocketseat.com.pass.in.event.Event;
+import rocketseat.com.pass.in.domain.event.Event;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package rocketseat.com.pass.in.checkin;
+package rocketseat.com.pass.in.domain.checkin;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

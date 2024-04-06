@@ -3,10 +3,11 @@ package rocketseat.com.pass.in.services;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import rocketseat.com.pass.in.domain.attendee.Attendee;
+import rocketseat.com.pass.in.domain.event.exceptions.EventNotFoundException;
 import rocketseat.com.pass.in.dto.event.EventIdDTO;
 import rocketseat.com.pass.in.dto.event.EventRequestDTO;
 import rocketseat.com.pass.in.dto.event.EventResponseDTO;
-import rocketseat.com.pass.in.event.Event;
+import rocketseat.com.pass.in.domain.event.Event;
 import rocketseat.com.pass.in.repositories.AttendeeRepository;
 import rocketseat.com.pass.in.repositories.EventRepository;
 
@@ -23,7 +24,7 @@ public class EventService {
     public EventResponseDTO getEventDetail (String eventId) {
 
         Event event = this.eventRepository.findById(eventId).orElseThrow(() ->
-                new RuntimeException("Event not found with ID:" + eventId));
+                new EventNotFoundException("Event not found with ID:" + eventId));
 
         List<Attendee> attendeeList = this.attendeeRepository.findByEventId(eventId);
 

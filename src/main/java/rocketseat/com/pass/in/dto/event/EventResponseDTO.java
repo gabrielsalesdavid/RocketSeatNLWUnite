@@ -1,7 +1,9 @@
 package rocketseat.com.pass.in.dto.event;
 
-import rocketseat.com.pass.in.event.Event;
+import lombok.Getter;
+import rocketseat.com.pass.in.domain.event.Event;
 
+@Getter
 public class EventResponseDTO {
 
     EventDetailDTO event;
