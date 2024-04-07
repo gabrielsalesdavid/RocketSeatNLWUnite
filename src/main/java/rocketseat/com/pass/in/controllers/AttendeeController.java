@@ -1,9 +1,9 @@
 package rocketseat.com.pass.in.controllers;
 
 import lombok.RequiredArgsConstructor;
-import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -23,5 +23,15 @@ public class AttendeeController {
 
         AttendeeBadgeResponseDTO response = this.attendeeService.getAttendeeBadge(attendeeId, uriComponentsBuilder);
         return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/{attendeeId}/check-in")
+    public ResponseEntity registerCheckIn (@PathVariable String attendeeId, UriComponentsBuilder uriComponentsBuilder) {
+
+        this.attendeeService.checkInAttendee(attendeeId);
+
+        var uri = uriComponentsBuilder.path("/atendees/{attendeeId}/badge").buildAndExpand(attendeeId).toUri();
+
+        return ResponseEntity.created(uri).build();
     }
 }
